@@ -1,0 +1,30 @@
+const int RaiseButton = 13;
+const int LowerButton = 11; 
+const int ClockwisePin = 4; 
+const int AntiClockPin = 2; 
+const int enablePin = 7; 
+int RaiseButtonState = digitalRead(RaiseButton);
+int LowerButtonState = digitalRead(LowerButton);
+
+void setup() {
+  pinMode(AntiClockPin, OUTPUT); 
+  pinMode(RaiseButton, INPUT); 
+  pinMode(LowerButton, INPUT); 
+  pinMode(ClockwisePin, OUTPUT); 
+  pinMode(enablePin, OUTPUT);
+}
+
+
+void loop() {
+  if (RaiseButtonState == HIGH){ 
+  	digitalWrite(enablePin, HIGH); 
+ 	digitalWrite(ClockwisePin, HIGH); 
+ 	digitalWrite(AntiClockPin, LOW);
+  }
+
+  if (LowerButtonState == HIGH){ 
+	digitalWrite(enablePin, HIGH);
+	digitalWrite(ClockwisePin, LOW); 
+	digitalWrite(AntiClockPin, HIGH);
+  }
+}
